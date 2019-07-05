@@ -1,0 +1,113 @@
+{% extends 'extend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -20px">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="https://smedia2.intoday.in/btmt/images/stories/indian_railway_660_050418065654_050219054040.jpg"
+                alt="Chania" width="100%" height="70vh">
+            <div class="carousel-caption">
+                <h2>Indian Railway</h2>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://i.ytimg.com/vi/KuDn-EWuZew/maxresdefault.jpg" alt="Chania" width="100%" height="50vh">
+            <div class="carousel-caption">
+                <h2>Indian Railway</h2>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://images.financialexpress.com/2018/03/railways-4.jpg" alt="Flower" width="100%"
+                height="50vh">
+            <div class="carousel-caption">
+                <h2>Indian Railway</h2>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://www.businessinsider.in/thumb/msid-67566131,width-600,resizemode-4/Indian-Railways-hooks-up-with-ISRO-satellites-to-live-track-trains.jpg?41379"
+                alt="Flower" width="100%" height="50vh">
+            <div class="carousel-caption">
+                <h2>Indian Railway</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div class="container-fluid pnr">
+    <h1 class="text-center">PNR</h1><br>
+    <div class="container">
+        <p>Indian Railway PNR Status. The Indian Railways passenger name record, also known as,
+            Passenger Name Record(PNR) is a number that consists of personal information of a passenger. ...
+            It is against this reference number that the passenger's personal details like name, age and
+            gender get saved in the database.
+        </p>
+        <p>In the airline and travel industries, a passenger name record (PNR) is a record in the database of a
+            computer reservation system (CRS) that consists of the personal information for a passenger and also
+            contains the itinerary for the passenger, or a group of passengers travelling together. The concept of
+            a PNR was first introduced by airlines that needed to exchange reservation information in case passengers
+            required flights of multiple airlines to reach their destination (“interlining”). For this purpose, IATA
+            and ATA defined standards for interline messaging of PNR and other data through the "ATA/IATA Reservations
+            Interline Message Procedures - Passenger" (AIRIMP). There is no general industry standard for the layout
+            and content of a PNR. In practice, each CRS or hosting system has its own proprietary standards, although
+            common industry needs, including the need to map PNR data easily to AIRIMP messages,
+            has resulted in many general similarities in data content and format between all of the major systems.
+        </p>
+        <a href="/pnr">Check PNR</a>
+    </div><br><br>
+</div>
+
+<div class="container-fluid live_status">
+    <h1 class="text-center">Live Status</h1><br>
+    <div class="container">
+        <p>RailRadar GPS (by RailYatri) is a live tracker allowing users to watch the movements of passenger
+            trains running in India on an interactive map. All passenger trains in India are operated by
+            state-owned Indian Railways. In the first release the location and status of trains shown on
+            the map was typically 15 to 30 minutes delayed from real-time. RailRadar was created when Indian
+            Railways Center for Railway Information System (CRIS) and RailYatri joined hands,[1] and the service
+            was launched on 10 October 2012.[2] RailRadar uses Google Maps as its web mapping software, and is
+            accessible in the form of a website and a mobile app. RailRadar was discontinued by Indian Railways
+            on 6 September 2013, before RailYatri relaunched it in November 2013. However the RailRadar service
+            did not provide the actual running status or the actual location of the train,
+            rather these locations were plotted based on the regular scheduled timetable.
+        </p>
+        <p>
+            RailYatri relaunched the site with RailRadar GPS in November 2015. RailRadar GPS determines train
+            locations by analyzing the pattern of locations transmitted by the smartphone travelers sitting on
+            the train, similar to how Google Maps determines traffic density on the road. RailRadar GPS shows
+            train tracking data displayed on a Google Map, which also indicates the delay
+            status of trains - trains running on time have green indicators, while those running late are marked red.
+        </p>
+        <a href="/live_status" class="text-danger">Check Train Live Status</a>
+    </div>
+    <br><br>
+</div>
+
+
+
+{% endblock %}

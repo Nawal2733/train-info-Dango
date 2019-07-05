@@ -1,0 +1,80 @@
+{% extends 'extend.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1 class="text-center">Train Routes</h1>
+    <div class="container">
+        <form action="/train_route/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">Train Number</label>
+                <input type="number" name="number" class="form-control" placeholder="Train Number">
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
+    </div><br>
+
+    {% if route %}
+    <div class="container" style="overflow: hidden; overflow-x: scroll">
+        <h4>Train Name: {{ train.name }}</h4>
+        <h4>Train Number: {{ train.number }}</h4>
+            <p> <b>Running Days : </b></p>
+            {% for days in train.days %}
+            {% if days.runs == 'Y' %}
+            <span>{{ days.code }} </span>
+            {% endif %}
+            {% endfor %}
+        <br><br>
+        <table class="table">
+            <thead style="background-color: rgb(236, 234, 234)">
+                <th></th>
+                <th>Station</th>
+                <th>Arrival</th>
+                <th>Depature</th>
+                <th>Halt</th>
+                <th>Day</th>
+                <th>Distance</th>
+            </thead>
+            <tbody>
+            {% for route in route %}
+
+                <tr>
+                    <td>{{ route.no }}</td>
+                    <th>{{ route.station.name }} ({{route.station.code}})</th>
+                    <td>{{ route.scharr }}</td>
+                    <td>{{ route.schdep }}</td>
+                    <td>{{ route.halt }}</td>
+                    <td>{{ route.day }}</td>
+                    <td>{{ route.distance }} KM</td>
+                                        
+                </tr>
+
+            {% endfor %}        
+            </tbody>
+        </table><br>
+    </div>
+    {% endif %}
+
+
+    <div class="container" style="background-color: rgb(127, 233, 236)">
+        <h2>Why it is so much necessary to find out Indian Railways time table?</h2>
+        <p>Have you ever given a thought, what would happen if you were completely unknow of the fact that 
+            how long will it take to reach your destination?<br><br>
+            It would be a blunder. Just to save you from this, eRail has brought in front of you a 
+            unique feature to completely analyze your train route before you start planning your trip. 
+            With this you will lack no-where to reach your destination on time and with comfort. <br><br>
+            To plan your vacation smartly, safely and time-efficiently it is very much important to check 
+            out Indian Railways time table. No one can deny this fact, that in India people simply adore 
+            to travel via train and Indian Railways has been managing such a large network spread across 
+            the length and breadth of the country efficaciously. The activity of choosing the right train 
+            for your travel could be upsetting at point and to get all the information about the trains running 
+            in between specific stations, it is always recommended to check train time table as it is 90% possible 
+            that because of any circumstances train can get delayed, cancel or get re-schedule.
+        </p><br>
+    </div>
+
+</div>
+
+<br><br>
+{% endblock %}

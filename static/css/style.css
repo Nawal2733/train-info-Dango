@@ -1,0 +1,51 @@
+body{
+    font-family: 'Libre Baskerville', serif;
+}
+.carousel-inner .item img{
+    height: 70vh;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Russo One', sans-serif;
+}
+.pnr{
+    background-color: rgb(247, 248, 248);
+    text-align: justify;
+}
+h1{
+    font-family: 'Bree Serif', serif;
+}
+.live_status{
+    background-color: #63AABC;
+    color: #fff;
+}
+.footer{
+    background-color: #525252;
+    color : #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+@media(max-width: 767px){
+    .carousel-inner .item img{
+        height: 50vh;
+    } 
+}
+@media(max-width: 476px){
+    .carousel-inner .item img{
+        height: 30vh;
+    } 
+}
+
+/* ----------------------------- live Status ------------------------------------------------ */
+.live{
+    background-color: #AEEFF0;
+    margin-top: -20px;
+}
+
+/* ------------------------------- PNR -------------------------------------------------------- */
+.pnr_page{
+    background-color: #AEEFF0;
+    margin-top: -20px;
+    text-align: justify;
+}

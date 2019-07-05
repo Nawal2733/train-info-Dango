@@ -1,0 +1,38 @@
+{% extends 'extend.html' %}
+
+{% block content %}
+
+<div class="container-fluid pnr_page">
+    <h1 class="text-center">PNR</h1><br>
+    <div class="container">
+        <p>Indian Railway PNR Status. The Indian Railways passenger name record, also known as,
+            Passenger Name Record(PNR) is a number that consists of personal information of a passenger. ...
+            It is against this reference number that the passenger's personal details like name, age and
+            gender get saved in the database.
+        </p>
+        <p>In the airline and travel industries, a passenger name record (PNR) is a record in the database of a
+            computer reservation system (CRS) that consists of the personal information for a passenger and also
+            contains the itinerary for the passenger, or a group of passengers travelling together. The concept of
+            a PNR was first introduced by airlines that needed to exchange reservation information in case passengers
+            required flights of multiple airlines to reach their destination (“interlining”). For this purpose, IATA
+            and ATA defined standards for interline messaging of PNR and other data through the "ATA/IATA Reservations
+            Interline Message Procedures - Passenger" (AIRIMP). There is no general industry standard for the layout
+            and content of a PNR. In practice, each CRS or hosting system has its own proprietary standards, although
+            common industry needs, including the need to map PNR data easily to AIRIMP messages,
+            has resulted in many general similarities in data content and format between all of the major systems.
+        </p><br><br>
+
+        <form action="/pnr/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">Enter PNR Number</label>
+                <input type="number" name="pnr" class="form-control" placeholder="Enter PNR">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form><br><br>
+
+    </div>
+    <br><br><br>
+</div>
+
+{% endblock %}

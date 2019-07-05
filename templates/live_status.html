@@ -1,0 +1,70 @@
+{% extends 'extend.html' %}
+
+{% block content %}
+
+<div class="container-fluid live">
+    <h1 class="text-center">Live Status</h1>
+    <div class="container">
+        <p>RailRadar GPS (by RailYatri) is a live tracker allowing users to watch the movements of passenger
+            trains running in India on an interactive map. All passenger trains in India are operated by
+            state-owned Indian Railways. In the first release the location and status of trains shown on
+            the map was typically 15 to 30 minutes delayed from real-time. RailRadar was created when Indian
+            Railways Center for Railway Information System (CRIS) and RailYatri joined hands,[1] and the service
+            was launched on 10 October 2012.[2] RailRadar uses Google Maps as its web mapping software, and is
+            accessible in the form of a website and a mobile app. RailRadar was discontinued by Indian Railways
+            on 6 September 2013, before RailYatri relaunched it in November 2013. However the RailRadar service
+            did not provide the actual running status or the actual location of the train,
+            rather these locations were plotted based on the regular scheduled timetable.
+        </p>
+        <p>
+            RailYatri relaunched the site with RailRadar GPS in November 2015. RailRadar GPS determines train
+            locations by analyzing the pattern of locations transmitted by the smartphone travelers sitting on
+            the train, similar to how Google Maps determines traffic density on the road. RailRadar GPS shows
+            train tracking data displayed on a Google Map, which also indicates the delay
+            status of trains - trains running on time have green indicators, while those running late are marked red.
+        </p><br>
+        <form action="/live_status/" method="post">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="">Train Number</label>
+                <input type="number" name="train_number" class="form-control" placeholder="Train Number">
+            </div>
+            <div class="form-group">
+                <label for="">Station Code</label>
+                <input type="text" name="code" class="form-control" placeholder="Ex.- BPL">
+            </div>
+            <div class="form-group">
+                <label for="">Date</label>
+                <input type="date" name="date" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
+    </div><br>
+
+    {% if position %}
+    <div class="container" style="background-color: burlywood">
+        <table class="table">
+            <thead>
+                <th>Station</th>
+                <th>Schedule Time </th>
+                <th>Actual TIme</th>
+                <th>Late</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{station.name}}({{station.code}})</th>
+                    <td>Arr: {{status.scharr}} <br> Dep: {{status.schdep}}</td>
+                    <td>{{status.actarr}} <br> {{status.actdep}}</td>
+                    <td class="text-danger"><b>{{ status.latemin }} Min</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <h4 class="text-center">{{position}}</h4>
+    </div>
+    {% endif %}
+    <br>
+</div>
+
+{% endblock %}

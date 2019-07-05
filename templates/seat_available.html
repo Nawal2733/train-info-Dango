@@ -1,0 +1,71 @@
+{% extends 'extend.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="container">
+        <h2 class="text-center">Check Seat Availability</h2>
+        <form action="/seat_availability/" method="post">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="">Train Number</label>
+                <input type="number" name="train_number" class="form-control" placeholder="ex.- 11448">
+            </div>
+            <div class="form-group">
+                <label for="">Source Station Code</label>
+                <input type="text" name="source" class="form-control" placeholder="ex:- BPL">
+            </div>
+            <div class="form-group">
+                <label for="">Destination Station Code</label>
+                <input type="text" name="dect" class="form-control" placeholder="ex:- DTO">
+            </div>
+            <div class="form-group">
+                <label for="">date</label>
+                <input type="date" name="date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Class</label>
+                <select name="class" id="" class="form-control">
+                    <option value="SL">SL</option>
+                    <option value="CC">CC</option>
+                    <option value="1A">1A</option>
+                    <option value="2A">2A</option>
+                    <option value="2S">2S</option>
+                </select>
+            </div>
+            <button class="btn btn-success" type="submit">Check</button>
+        </form>
+    </div><br>
+
+    {% if availability %}
+    <div class="container" style="background-color: rgb(235, 232, 228)">
+        <h4>Train Name: {{train.name}}({{train.number}})</h4>
+        <h4>From Station: {{from_station.name}}({{from_station.code}})</h4>
+        <h4>To Station: {{to_station.name}}({{to_station.code}})</h4>
+        <h4>Class : {{journey_class.name}}({{journey_class.code}})</h4>
+        <table class="table">
+            <thead>
+                <th>Date</th>
+                <th>Availability</th>
+            </thead>
+            <tbody>
+                {% for available in availability %}
+                <tr>
+                    <td>{{available.date}}</td>
+                    <td>{{available.status}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <!-- <p class="alert aert-danger text-center">Something is Wrong..Please Try Again...</p> -->
+    {% endif %}
+
+
+</div><br><br>
+
+{% endblock %}
