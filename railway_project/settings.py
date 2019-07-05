@@ -26,7 +26,7 @@ SECRET_KEY = 'eq^x#arze-7qy!qzajh+yx5+%$4%6cg$=wq-^587@v9e$ngabe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['trains-info.herokuapp.com']
 
 
 # Application definition
