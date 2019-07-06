@@ -30,8 +30,8 @@ def live_status(request):
 
 def pnr(request):
     if request.method == 'POST':
-        url = 'https://api.railwayapi.com/v2/pnr-status/pnr/' + pnr + '/apikey/' + api_key + '/'
         pnr = request.POST['pnr']
+        url = 'https://api.railwayapi.com/v2/pnr-status/pnr/' + pnr + '/apikey/' + api_key + '/'
         response_ob = requests.get(url)
         result = response_ob.json()
         return render(request, 'pnr.html', context=result)
