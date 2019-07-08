@@ -26,7 +26,7 @@ SECRET_KEY = 'eq^x#arze-7qy!qzajh+yx5+%$4%6cg$=wq-^587@v9e$ngabe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['trains-info.herokuapp.com']
+ALLOWED_HOSTS = ['trains-info.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

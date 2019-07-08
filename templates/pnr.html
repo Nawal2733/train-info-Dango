@@ -26,12 +26,50 @@
             {% csrf_token %}
             <div class="form-group">
                 <label for="">Enter PNR Number</label>
-                <input type="number" name="pnr" class="form-control" placeholder="Enter PNR">
+                <input type="number" name="pnr" class="form-control" placeholder="Enter PNR" required maxlength="10" minlength="10">
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form><br><br>
 
     </div>
+
+    {% if response_code == 200 %}
+
+    <div class="container">
+        <h4>PNR Number - {{pnr}}</h4>
+        <h4>{{train.number}} - {{train.name}}</h4>
+        <h4>From Station : {{from_station.name}}({{from_station.code}})</h4>
+        <h4>To Station : {{to_station.name}}({{to_station.code}})</h4>
+        <h4>Boarding Point : {{boarding_point.name}}({{boarding_point.code}})</h4>
+        <h4>Reservation Upto : {{reservation_upto.name}}({{reservation_upto.code}}</h4>
+        <h4>Date Of Journey : {{doj}}</h4>
+        <h4>Class : {{journey_class.code}}</h4>
+        <table class="table">
+            <thead>
+                <th>Passenger Number</th>
+                <th>Booking Status</th>
+                <th>Current Status</th>
+            </thead>
+            <tbody>
+                {% for passenger in passengers %}
+                <tr>
+                    <td>{{passenger.no}}</td>
+                    <td>{{passenger.booking_status}}</td>
+                    <td>{{passenger.current_status}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if chart_prepared %}
+        <p class="text-danger text-center">Chart is not prepared</p>
+        {% endif %}
+    </div>
+
+    {% endif %}
+
+    {% if response_code == 220 %}
+    <h4 class="alert alert-danger text-center">Please Enter Vailid PNR</h4>
+    {% endif %}
     <br><br><br>
 </div>
 
