@@ -3,4 +3,4 @@ Django==1.11.28
 gunicorn==19.7.1
 psycopg2==2.7.1
 whitenoise==3.3.0
-requests==2.18.4
+requests==2.20.0
